@@ -36,6 +36,14 @@ namespace LibApp.Controllers
 
             return View("BookForm", viewModel);
         }
+        public ActionResult DateAction(Book model)
+        {
+            if(ModelState.IsValid)
+            {
+                return RedirectToAction("SuccessAction");
+            }
+            return View(model);
+        }
 
         public IActionResult Index()
         {
