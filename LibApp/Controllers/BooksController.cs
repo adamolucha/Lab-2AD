@@ -5,8 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using LibApp.Models;
 using LibApp.ViewModels;
-using LibApp.Data;
 using Microsoft.EntityFrameworkCore;
+using LibApp.Data;
 
 namespace LibApp.Controllers
 {
@@ -14,9 +14,9 @@ namespace LibApp.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public BooksController(ApplicationDbContext context)
+        public BooksController(ApplicationDbContext dbcontext)
         {
-            _context = context;
+            _context = dbcontext;
         }
 
         public IActionResult Edit(int id)
@@ -82,6 +82,7 @@ namespace LibApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Save(Book book)
         {
             if (book.Id == 0)

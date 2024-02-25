@@ -35,6 +35,7 @@
     </div>
 
     @Html.HiddenFor(m => m.Book.Id)
+    @Html.ValidationSummary()
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 }

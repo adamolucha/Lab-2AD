@@ -13,9 +13,9 @@ namespace LibApp.Controllers
     public class CustomersController : Controller
     {
         // DbContext will be polled through Dependency Injection
-        public CustomersController(ApplicationDbContext dbContext)
+        public CustomersController(ApplicationDbContext Context)
         {
-            _context = dbContext;
+            _context = Context;
         }
 
         public ViewResult Index()
